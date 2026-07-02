@@ -1,0 +1,183 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 40% 98%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    --primary: 221 83% 53%; /* #2563EB */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 173 80% 40%; /* #14B8A6 */
+    --secondary-foreground: 0 0% 100%;
+
+    --accent: 262 83% 58%; /* #7C3AED */
+    --accent-foreground: 0 0% 100%;
+
+    --success: 142 71% 45%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 221 83% 53%;
+
+    --sidebar: 222 47% 11%;
+    --sidebar-foreground: 215 20% 75%;
+    --sidebar-border: 217 33% 20%;
+    --sidebar-accent: 221 83% 53%;
+
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 222 47% 8%;
+    --foreground: 210 40% 96%;
+
+    --card: 222 44% 11%;
+    --card-foreground: 210 40% 96%;
+
+    --popover: 222 44% 11%;
+    --popover-foreground: 210 40% 96%;
+
+    --primary: 217 91% 60%;
+    --primary-foreground: 222 47% 8%;
+
+    --secondary: 173 70% 45%;
+    --secondary-foreground: 222 47% 8%;
+
+    --accent: 262 83% 66%;
+    --accent-foreground: 222 47% 8%;
+
+    --success: 142 65% 48%;
+    --success-foreground: 222 47% 8%;
+
+    --warning: 38 92% 55%;
+    --warning-foreground: 222 47% 8%;
+
+    --destructive: 0 72% 58%;
+    --destructive-foreground: 210 40% 96%;
+
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 65%;
+
+    --border: 217 33% 20%;
+    --input: 217 33% 22%;
+    --ring: 217 91% 60%;
+
+    --sidebar: 222 47% 6%;
+    --sidebar-foreground: 215 20% 70%;
+    --sidebar-border: 217 33% 15%;
+    --sidebar-accent: 217 91% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-feature-settings: "cv11", "ss01";
+    font-variation-settings: normal;
+  }
+  ::selection {
+    @apply bg-primary/20;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-card/70 backdrop-blur-xl border border-border/60;
+  }
+  .glass-dark {
+    @apply bg-sidebar/80 backdrop-blur-xl;
+  }
+  .text-gradient {
+    @apply bg-gradient-to-br from-primary to-accent bg-clip-text text-transparent;
+  }
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-elevated hover:-translate-y-0.5;
+  }
+  .focus-ring {
+    @apply outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background;
+  }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .shimmer {
+    position: relative;
+    overflow: hidden;
+  }
+  .shimmer::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    transform: translateX(-100%);
+    background: linear-gradient(
+      90deg,
+      transparent,
+      hsl(var(--foreground) / 0.06),
+      transparent
+    );
+    animation: shimmer 1.6s infinite;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground) / 0.25);
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground) / 0.4);
+  background-clip: padding-box;
+}
+
+/* Recharts polish */
+.recharts-cartesian-axis-tick-value {
+  font-size: 11px;
+  fill: hsl(var(--muted-foreground));
+}
+.recharts-default-tooltip {
+  border-radius: 12px !important;
+  border: 1px solid hsl(var(--border)) !important;
+  box-shadow: 0 8px 24px -6px rgb(16 24 40 / 0.12) !important;
+}
