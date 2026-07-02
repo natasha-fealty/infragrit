@@ -16,9 +16,11 @@ interface Props {
   collapsed: boolean;
   onToggle: () => void;
   onNavigate?: () => void;
+  /** Namespaces the active-indicator layoutId so multiple mounted sidebars don't conflict. */
+  instanceId?: string;
 }
 
-export function Sidebar({ collapsed, onToggle, onNavigate }: Props) {
+export function Sidebar({ collapsed, onToggle, onNavigate, instanceId = "desktop" }: Props) {
   return (
     <aside
       className={cn(
@@ -75,7 +77,7 @@ export function Sidebar({ collapsed, onToggle, onNavigate }: Props) {
                           <>
                             {isActive && (
                               <motion.span
-                                layoutId="sidebar-active"
+                                layoutId={`sidebar-active-${instanceId}`}
                                 className="absolute left-0 top-1/2 h-6 w-1 -translate-y-1/2 rounded-r-full bg-primary"
                                 transition={{ type: "spring", stiffness: 400, damping: 32 }}
                               />
