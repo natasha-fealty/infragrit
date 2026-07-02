@@ -220,7 +220,7 @@ export const aiRecommendations: AiRecommendation[] = [
 ];
 
 export const risks: RiskItem[] = [
-  { id: "RSK-014", title: "Solar module inventory exhaustion", category: "Procurement", severity: "critical", probability: 82, impactCr: 4.16, owner: "R. Sharma", status: "Mitigating", due: "2026-08-12" },
+  { id: "RSK-014", title: "Solar module inventory exhaustion", category: "Procurement", severity: "critical", probability: 82, impactCr: 4.16, owner: "A. Kalva", status: "Mitigating", due: "2026-08-12" },
   { id: "RSK-011", title: "Piling productivity below target", category: "Schedule", severity: "high", probability: 70, impactCr: 2.75, owner: "A. Nair", status: "Open", due: "2026-08-05" },
   { id: "RSK-018", title: "Inverter delivery slippage (PCU-3)", category: "Procurement", severity: "high", probability: 65, impactCr: 3.45, owner: "S. Iyer", status: "Open", due: "2026-08-18" },
   { id: "RSK-009", title: "Structures labour shortage", category: "Resource", severity: "high", probability: 60, impactCr: 3.0, owner: "V. Rao", status: "Mitigating", due: "2026-07-28" },
@@ -232,7 +232,7 @@ export const risks: RiskItem[] = [
 ];
 
 export const alerts: Alert[] = [
-  { id: "ALT-101", title: "Solar module inventory expected to exhaust on 12-Aug", description: "Remaining delivery scheduled for 15-Aug. Module Installation is on the critical path.", category: "Procurement", source: "AI Prediction Engine", severity: "critical", impact: "8-day COD delay · ₹4.16 Cr", recommendedAction: "Expedite delivery / re-sequence blocks", status: "New", owner: "R. Sharma", minutesAgo: 6 },
+  { id: "ALT-101", title: "Solar module inventory expected to exhaust on 12-Aug", description: "Remaining delivery scheduled for 15-Aug. Module Installation is on the critical path.", category: "Procurement", source: "AI Prediction Engine", severity: "critical", impact: "8-day COD delay · ₹4.16 Cr", recommendedAction: "Expedite delivery / re-sequence blocks", status: "New", owner: "A. Kalva", minutesAgo: 6 },
   { id: "ALT-098", title: "Piling productivity 33% below plan in Block C", description: "Actual 10,000/day vs planned 15,000/day for 5 consecutive days.", category: "Schedule", source: "Site Progress", severity: "critical", impact: "11-day slippage · ₹2.75 Cr", recommendedAction: "Mobilise 2 additional piling rigs", status: "Acknowledged", owner: "A. Nair", minutesAgo: 42 },
   { id: "ALT-095", title: "Inverter delivery slippage detected — PCU-3", description: "Vendor confirmed 9-day slip against promised date.", category: "Procurement", source: "SAP Connector", severity: "high", impact: "9-day delay · ₹3.45 Cr", recommendedAction: "Escalate to vendor / evaluate alternate", status: "In Progress", owner: "S. Iyer", minutesAgo: 95 },
   { id: "ALT-090", title: "NCR rate trending up in structures", description: "14 open NCRs, up 40% week-on-week; welding defects dominant.", category: "Quality", source: "QA/QC Module", severity: "high", impact: "48 MT rework · ₹3.6 Cr", recommendedAction: "Deploy additional QA inspector", status: "New", owner: "M. Gupta", minutesAgo: 180 },
@@ -245,7 +245,7 @@ export const alerts: Alert[] = [
 
 export const activityFeed: ActivityEntry[] = [
   { id: "a1", actor: "AI Engine", action: "predicted", target: "8-day COD delay", module: "Predictions", minutesAgo: 6, tone: "warning" },
-  { id: "a2", actor: "Rahul Sharma", action: "acknowledged alert", target: "ALT-098 Piling", module: "Schedule", minutesAgo: 40, tone: "info" },
+  { id: "a2", actor: "Anurag Kalva", action: "acknowledged alert", target: "ALT-098 Piling", module: "Schedule", minutesAgo: 40, tone: "info" },
   { id: "a3", actor: "SAP Connector", action: "synced", target: "312 cost transactions", module: "Cost", minutesAgo: 58, tone: "success" },
   { id: "a4", actor: "Meera Gupta", action: "raised NCR", target: "NCR-0142 Welding", module: "Quality", minutesAgo: 120, tone: "danger" },
   { id: "a5", actor: "Site Engineer", action: "submitted DPR", target: "Block C progress", module: "Data Entry", minutesAgo: 145, tone: "info" },
@@ -875,7 +875,7 @@ export const reports = [
 /* ------------------------------------------------------------------ */
 
 export const users: UserRow[] = [
-  { id: "1", name: "Rahul Sharma", email: "rahul.sharma@infragrit.com", role: "Project Director", status: "Active", lastActive: "2 min ago" },
+  { id: "1", name: "Anurag Kalva", email: "anurag.kalva@infragrit.com", role: "Project Director", status: "Active", lastActive: "2 min ago" },
   { id: "2", name: "Ananya Nair", email: "ananya.nair@infragrit.com", role: "Planning Engineer", status: "Active", lastActive: "18 min ago" },
   { id: "3", name: "Meera Gupta", email: "meera.gupta@infragrit.com", role: "QA Engineer", status: "Active", lastActive: "1 hr ago" },
   { id: "4", name: "Suresh Iyer", email: "suresh.iyer@infragrit.com", role: "Procurement Engineer", status: "Active", lastActive: "3 hrs ago" },
@@ -916,7 +916,7 @@ export const masters = [
 ];
 
 export const auditLogs = [
-  { id: "al1", user: "Rahul Sharma", action: "Approved change order CO-006", when: "Today, 09:12", ip: "10.4.2.18" },
+  { id: "al1", user: "Anurag Kalva", action: "Approved change order CO-006", when: "Today, 09:12", ip: "10.4.2.18" },
   { id: "al2", user: "System", action: "AI model v3.2 deployed", when: "Today, 06:00", ip: "system" },
   { id: "al3", user: "Suresh Iyer", action: "Updated PO-2418 promised date", when: "Yesterday, 16:44", ip: "10.4.2.31" },
   { id: "al4", user: "Meera Gupta", action: "Closed NCR-0121", when: "Yesterday, 14:20", ip: "10.4.2.22" },

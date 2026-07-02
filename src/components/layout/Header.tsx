@@ -89,10 +89,10 @@ export function Header({ onMenuClick }: { onMenuClick: () => void }) {
           <DropdownMenuTrigger asChild>
             <button className="flex items-center gap-2 rounded-lg py-1 pl-1 pr-2 transition-colors hover:bg-muted">
               <Avatar className="h-8 w-8">
-                <AvatarFallback>RS</AvatarFallback>
+                <AvatarFallback>AK</AvatarFallback>
               </Avatar>
               <div className="hidden text-left leading-tight lg:block">
-                <p className="text-sm font-semibold">Rahul Sharma</p>
+                <p className="text-sm font-semibold">Anurag Kalva</p>
                 <p className="text-[11px] text-muted-foreground">Project Director</p>
               </div>
               <ChevronDown className="hidden h-4 w-4 text-muted-foreground lg:block" />
@@ -102,11 +102,11 @@ export function Header({ onMenuClick }: { onMenuClick: () => void }) {
             <DropdownMenuLabel className="normal-case">
               <div className="flex items-center gap-3 py-1">
                 <Avatar className="h-9 w-9">
-                  <AvatarFallback>RS</AvatarFallback>
+                  <AvatarFallback>AK</AvatarFallback>
                 </Avatar>
                 <div className="leading-tight">
-                  <p className="text-sm font-semibold text-foreground">Rahul Sharma</p>
-                  <p className="text-xs text-muted-foreground">rahul.sharma@infragrit.com</p>
+                  <p className="text-sm font-semibold text-foreground">Anurag Kalva</p>
+                  <p className="text-xs text-muted-foreground">anurag.kalva@infragrit.com</p>
                 </div>
               </div>
             </DropdownMenuLabel>

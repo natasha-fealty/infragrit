@@ -1,6 +1,5 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Outlet, useLocation } from "react-router-dom";
-import { AnimatePresence, motion } from "framer-motion";
 import { Sidebar } from "./Sidebar";
 import { Header } from "./Header";
 import { Footer } from "./Footer";
@@ -11,6 +10,19 @@ export function AppLayout() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const location = useLocation();
 
+  // Close the mobile drawer whenever the route changes.
+  useEffect(() => {
+    setMobileOpen(false);
+  }, [location.pathname]);
+
+  // Lock body scroll while the drawer is open.
+  useEffect(() => {
+    document.body.style.overflow = mobileOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [mobileOpen]);
+
   return (
     <div className="flex h-screen overflow-hidden bg-background">
       {/* Desktop sidebar */}
@@ -18,53 +30,35 @@ export function AppLayout() {
         <Sidebar collapsed={collapsed} onToggle={() => setCollapsed((c) => !c)} />
       </div>
 
-      {/* Mobile drawer */}
-      <AnimatePresence>
-        {mobileOpen && (
-          <motion.div
-            key="mobile-overlay"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={() => setMobileOpen(false)}
-            className="fixed inset-0 z-40 bg-slate-950/50 backdrop-blur-sm lg:hidden"
-          />
+      {/* Mobile drawer (pure CSS transitions) */}
+      <div
+        aria-hidden={!mobileOpen}
+        onClick={() => setMobileOpen(false)}
+        className={cn(
+          "fixed inset-0 z-40 bg-slate-950/50 backdrop-blur-sm transition-opacity duration-300 lg:hidden",
+          mobileOpen ? "opacity-100" : "pointer-events-none opacity-0"
         )}
-        {mobileOpen && (
-          <motion.div
-            key="mobile-drawer"
-            initial={{ x: -280 }}
-            animate={{ x: 0 }}
-            exit={{ x: -280 }}
-            transition={{ type: "spring", stiffness: 400, damping: 40 }}
-            className="fixed inset-y-0 left-0 z-50 lg:hidden"
-          >
-            <Sidebar
-              collapsed={false}
-              instanceId="mobile"
-              onToggle={() => setMobileOpen(false)}
-              onNavigate={() => setMobileOpen(false)}
-            />
-          </motion.div>
+      />
+      <div
+        className={cn(
+          "fixed inset-y-0 left-0 z-50 transition-transform duration-300 ease-out will-change-transform lg:hidden",
+          mobileOpen ? "translate-x-0" : "-translate-x-full"
         )}
-      </AnimatePresence>
+      >
+        <Sidebar
+          collapsed={false}
+          instanceId="mobile"
+          onToggle={() => setMobileOpen(false)}
+          onNavigate={() => setMobileOpen(false)}
+        />
+      </div>
 
       {/* Main column */}
       <div className={cn("flex min-w-0 flex-1 flex-col")}>
-        <Header onMenuClick={() => setMobileOpen(true)} />
+        <Header onMenuClick={() => setMobileOpen((o) => !o)} />
         <main className="flex-1 overflow-y-auto">
           <div className="mx-auto w-full max-w-[1600px] px-3 py-5 sm:px-4 sm:py-6 lg:px-8">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={location.pathname}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -6 }}
-                transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
-              >
-                <Outlet />
-              </motion.div>
-            </AnimatePresence>
+            <Outlet key={location.pathname} />
           </div>
           <Footer />
         </main>

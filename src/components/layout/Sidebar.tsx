@@ -1,5 +1,4 @@
 import { NavLink } from "react-router-dom";
-import { motion } from "framer-motion";
 import { ChevronLeft, PanelLeftClose } from "lucide-react";
 import { navGroups, navItems } from "@/constants/nav";
 import { Logo } from "./Logo";
@@ -76,11 +75,7 @@ export function Sidebar({ collapsed, onToggle, onNavigate, instanceId = "desktop
                         {({ isActive }) => (
                           <>
                             {isActive && (
-                              <motion.span
-                                layoutId={`sidebar-active-${instanceId}`}
-                                className="absolute left-0 top-1/2 h-6 w-1 -translate-y-1/2 rounded-r-full bg-primary"
-                                transition={{ type: "spring", stiffness: 400, damping: 32 }}
-                              />
+                              <span className="absolute left-0 top-1/2 h-6 w-1 -translate-y-1/2 rounded-r-full bg-primary" />
                             )}
                             <Icon className="h-[18px] w-[18px] shrink-0" />
                             {!collapsed && <span className="truncate">{item.label}</span>}
