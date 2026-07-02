@@ -241,20 +241,22 @@ export default function Documents() {
 
       {/* Tabs */}
       <Tabs defaultValue="register" className="space-y-4">
-        <TabsList>
-          <TabsTrigger value="register">
-            <FileText className="h-4 w-4" /> Document Register
-          </TabsTrigger>
-          <TabsTrigger value="revisions">
-            <History className="h-4 w-4" /> Revision Tracker
-          </TabsTrigger>
-          <TabsTrigger value="comparison">
-            <GitCompareArrows className="h-4 w-4" /> Drawing Comparison
-          </TabsTrigger>
-          <TabsTrigger value="ai">
-            <Sparkles className="h-4 w-4" /> AI Change Analysis
-          </TabsTrigger>
-        </TabsList>
+        <div className="no-scrollbar -mx-1 overflow-x-auto px-1">
+          <TabsList className="w-max min-w-full justify-start">
+            <TabsTrigger value="register" className="whitespace-nowrap">
+              <FileText className="h-4 w-4" /> Document Register
+            </TabsTrigger>
+            <TabsTrigger value="revisions" className="whitespace-nowrap">
+              <History className="h-4 w-4" /> Revision Tracker
+            </TabsTrigger>
+            <TabsTrigger value="comparison" className="whitespace-nowrap">
+              <GitCompareArrows className="h-4 w-4" /> Drawing Comparison
+            </TabsTrigger>
+            <TabsTrigger value="ai" className="whitespace-nowrap">
+              <Sparkles className="h-4 w-4" /> AI Change Analysis
+            </TabsTrigger>
+          </TabsList>
+        </div>
 
         {/* --- Document Register --- */}
         <TabsContent value="register">

@@ -201,7 +201,7 @@ export default function CommandCentre() {
         <motion.div variants={fadeInUp} initial="hidden" animate="show" className="lg:col-span-2">
           <Card className="relative h-full overflow-hidden">
             <div className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-accent/10 blur-3xl" />
-            <CardHeader className="relative flex-row items-center justify-between space-y-0">
+            <CardHeader className="relative flex-row flex-wrap items-center justify-between gap-2 space-y-0">
               <CardTitle className="flex items-center gap-2">
                 <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-gradient-brand text-white">
                   <Sparkles className="h-4 w-4" />
@@ -264,7 +264,7 @@ export default function CommandCentre() {
       {/* Section D — AI Recommendations */}
       <motion.div variants={fadeInUp} initial="hidden" animate="show">
         <Card>
-          <CardHeader className="flex-row items-center justify-between space-y-0">
+          <CardHeader className="flex-row flex-wrap items-center justify-between gap-2 space-y-0">
             <CardTitle className="flex items-center gap-2">
               <Lightbulb className="h-4 w-4 text-accent" />
               AI Recommendations
@@ -436,7 +436,7 @@ export default function CommandCentre() {
       {/* Recent critical alerts strip */}
       <motion.div variants={fadeInUp} initial="hidden" animate="show">
         <Card>
-          <CardHeader className="flex-row items-center justify-between space-y-0">
+          <CardHeader className="flex-row flex-wrap items-center justify-between gap-2 space-y-0">
             <CardTitle className="flex items-center gap-2">
               <AlertTriangle className="h-4 w-4 text-destructive" />
               Recent Critical Alerts

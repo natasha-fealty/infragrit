@@ -205,10 +205,10 @@ export default function Alerts() {
             className="pl-9"
           />
         </div>
-        <div className="flex items-center gap-2">
-          <Filter className="h-4 w-4 text-muted-foreground" />
+        <div className="flex flex-1 items-center gap-2 sm:flex-none">
+          <Filter className="h-4 w-4 shrink-0 text-muted-foreground" />
           <Select value={category} onValueChange={setCategory}>
-            <SelectTrigger className="w-44">
+            <SelectTrigger className="w-full sm:w-44">
               <SelectValue placeholder="Category" />
             </SelectTrigger>
             <SelectContent>
@@ -436,7 +436,7 @@ function AlertRow({
             </Avatar>
             <span className="text-xs font-medium">{a.owner}</span>
           </div>
-          <div className="flex items-center gap-2">
+          <div className="flex flex-wrap items-center gap-2 sm:justify-end">
             <Button variant="ghost" size="sm" onClick={onView}>
               <Eye />
               View

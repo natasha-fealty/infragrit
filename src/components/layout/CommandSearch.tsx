@@ -41,9 +41,9 @@ export function CommandSearch() {
     <>
       <button
         onClick={() => setOpen(true)}
-        className="group flex h-9 w-full items-center gap-2 rounded-lg border border-border bg-muted/40 px-3 text-sm text-muted-foreground transition-colors hover:bg-muted lg:w-64"
+        className="group flex h-9 w-9 items-center justify-center gap-2 rounded-lg border border-border bg-muted/40 px-0 text-sm text-muted-foreground transition-colors hover:bg-muted lg:w-64 lg:justify-start lg:px-3"
       >
-        <Search className="h-4 w-4" />
+        <Search className="h-4 w-4 shrink-0" />
         <span className="hidden lg:inline">Search modules…</span>
         <kbd className="ml-auto hidden items-center gap-0.5 rounded border border-border bg-card px-1.5 py-0.5 text-[10px] font-medium text-muted-foreground lg:inline-flex">
           ⌘K

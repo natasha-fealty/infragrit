@@ -376,7 +376,7 @@ export default function Hse() {
       {/* Incident Register */}
       <motion.div variants={fadeInUp} initial="hidden" animate="show">
         <Card>
-          <CardHeader className="flex-row items-center justify-between space-y-0">
+          <CardHeader className="flex-row flex-wrap items-center justify-between gap-2 space-y-0">
             <CardTitle className="flex items-center gap-2">
               <ClipboardList className="h-4 w-4 text-primary" />
               Incident Register
@@ -535,7 +535,7 @@ export default function Hse() {
             </DialogDescription>
           </DialogHeader>
           <div className="grid gap-4 py-2">
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
               <div className="space-y-2">
                 <Label>Type</Label>
                 <Select value={type} onValueChange={setType}>

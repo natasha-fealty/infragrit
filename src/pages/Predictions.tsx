@@ -463,7 +463,7 @@ export default function Predictions() {
       <motion.div variants={fadeInUp} initial="hidden" animate="show">
         <Card className="relative overflow-hidden">
           <div className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-primary/10 blur-3xl" />
-          <CardHeader className="relative flex-row items-center justify-between space-y-0">
+          <CardHeader className="relative flex-row flex-wrap items-center justify-between gap-2 space-y-0">
             <CardTitle className="flex items-center gap-2">
               <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-gradient-brand text-white">
                 <SlidersHorizontal className="h-4 w-4" />
@@ -667,12 +667,12 @@ export default function Predictions() {
             className="lg:col-span-2"
           >
             <Card className="h-full">
-              <CardHeader className="flex-row items-center justify-between space-y-0">
-                <CardTitle className="flex items-center gap-2">
-                  <Workflow className="h-4 w-4 text-primary" />
-                  {selected.title}
+              <CardHeader className="flex-row flex-wrap items-center justify-between gap-2 space-y-0">
+                <CardTitle className="flex min-w-0 items-center gap-2">
+                  <Workflow className="h-4 w-4 shrink-0 text-primary" />
+                  <span className="min-w-0 truncate">{selected.title}</span>
                 </CardTitle>
-                <Button variant="soft" size="sm" onClick={() => setDialogId(selected.id)}>
+                <Button variant="soft" size="sm" className="shrink-0" onClick={() => setDialogId(selected.id)}>
                   Expand flow <ArrowRight className="h-4 w-4" />
                 </Button>
               </CardHeader>

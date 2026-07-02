@@ -315,7 +315,7 @@ export default function Settings() {
                 </p>
               </div>
             </div>
-            <div className="grid grid-cols-3 gap-6 sm:text-right">
+            <div className="grid grid-cols-3 gap-3 sm:gap-6 sm:text-right">
               {[
                 { label: "Workspace", value: project.epc },
                 { label: "Project Code", value: project.code },
@@ -335,10 +335,10 @@ export default function Settings() {
 
       {/* Tabs */}
       <Tabs defaultValue="users" className="space-y-4">
-        <div className="overflow-x-auto pb-1">
-          <TabsList className="h-auto flex-wrap justify-start">
+        <div className="no-scrollbar -mx-1 overflow-x-auto px-1 pb-1">
+          <TabsList className="h-auto w-max min-w-full justify-start">
             {tabs.map((t) => (
-              <TabsTrigger key={t.value} value={t.value}>
+              <TabsTrigger key={t.value} value={t.value} className="whitespace-nowrap">
                 <t.icon className="h-4 w-4" />
                 {t.label}
               </TabsTrigger>
@@ -349,7 +349,7 @@ export default function Settings() {
         {/* ---------------- USERS ---------------- */}
         <TabsContent value="users">
           <Card>
-            <CardHeader className="flex-row items-center justify-between space-y-0">
+            <CardHeader className="flex-row flex-wrap items-center justify-between gap-3 space-y-0">
               <div>
                 <CardTitle className="flex items-center gap-2">
                   <UsersIcon className="h-4 w-4 text-primary" />
@@ -444,7 +444,7 @@ export default function Settings() {
         {/* ---------------- ROLES ---------------- */}
         <TabsContent value="roles">
           <Card>
-            <CardHeader className="flex-row items-center justify-between space-y-0">
+            <CardHeader className="flex-row flex-wrap items-center justify-between gap-3 space-y-0">
               <CardTitle className="flex items-center gap-2">
                 <ShieldCheck className="h-4 w-4 text-primary" />
                 Roles & Permissions
@@ -548,7 +548,7 @@ export default function Settings() {
         {/* ---------------- THRESHOLDS ---------------- */}
         <TabsContent value="thresholds">
           <Card>
-            <CardHeader className="flex-row items-center justify-between space-y-0">
+            <CardHeader className="flex-row flex-wrap items-center justify-between gap-3 space-y-0">
               <div>
                 <CardTitle className="flex items-center gap-2">
                   <SlidersHorizontal className="h-4 w-4 text-primary" />
@@ -600,7 +600,7 @@ export default function Settings() {
           <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
             <motion.div variants={fadeInUp} initial="hidden" animate="show" className="lg:col-span-2">
               <Card className="h-full">
-                <CardHeader className="flex-row items-center justify-between space-y-0">
+                <CardHeader className="flex-row flex-wrap items-center justify-between gap-3 space-y-0">
                   <CardTitle className="flex items-center gap-2">
                     <Plug className="h-4 w-4 text-primary" />
                     Connected Systems
@@ -684,7 +684,7 @@ export default function Settings() {
         {/* ---------------- NOTIFICATIONS ---------------- */}
         <TabsContent value="notifications">
           <Card>
-            <CardHeader className="flex-row items-center justify-between space-y-0">
+            <CardHeader className="flex-row flex-wrap items-center justify-between gap-3 space-y-0">
               <div>
                 <CardTitle className="flex items-center gap-2">
                   <Bell className="h-4 w-4 text-primary" />
@@ -723,7 +723,7 @@ export default function Settings() {
           <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
             <motion.div variants={fadeInUp} initial="hidden" animate="show" className="lg:col-span-2">
               <Card className="h-full">
-                <CardHeader className="flex-row items-center justify-between space-y-0">
+                <CardHeader className="flex-row flex-wrap items-center justify-between gap-3 space-y-0">
                   <CardTitle className="flex items-center gap-2">
                     <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-gradient-brand text-white">
                       <Sparkles className="h-4 w-4" />

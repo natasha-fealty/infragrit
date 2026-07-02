@@ -46,7 +46,7 @@ export function PageHeader({ title, description, breadcrumbs, actions, icon }: P
             </div>
           )}
           <div>
-            <h1 className="font-display text-2xl font-bold tracking-tight text-foreground">
+            <h1 className="font-display text-xl font-bold tracking-tight text-foreground sm:text-2xl">
               {title}
             </h1>
             {description && (

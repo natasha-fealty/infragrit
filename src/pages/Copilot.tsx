@@ -287,27 +287,27 @@ export default function Copilot() {
           variants={fadeInUp}
           initial="hidden"
           animate="show"
-          className="flex min-h-[640px] flex-col overflow-hidden rounded-xl border border-border bg-card"
+          className="flex min-h-[560px] flex-col overflow-hidden rounded-xl border border-border bg-card sm:min-h-[640px]"
         >
-          <div className="flex items-center justify-between border-b border-border px-5 py-3.5">
-            <div className="flex items-center gap-2.5">
+          <div className="flex items-center justify-between gap-2 border-b border-border px-4 py-3.5 sm:px-5">
+            <div className="flex min-w-0 items-center gap-2.5">
               <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-brand text-white shadow-card">
                 <Bot className="h-4 w-4" />
               </div>
-              <div>
+              <div className="min-w-0">
                 <p className="font-display text-sm font-semibold leading-tight">InfraGrit Copilot</p>
                 <p className="flex items-center gap-1 text-[11px] text-muted-foreground">
-                  <span className="h-1.5 w-1.5 rounded-full bg-success" />
-                  Online · {project.name}
+                  <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-success" />
+                  <span className="truncate">Online · {project.name}</span>
                 </p>
               </div>
             </div>
-            <Badge variant="accent" className="gap-1">
+            <Badge variant="accent" className="shrink-0 gap-1">
               <Sparkles className="h-3 w-3" /> AI {project.aiConfidence}%
             </Badge>
           </div>
 
-          <div ref={scrollRef} className="flex-1 space-y-5 overflow-y-auto px-5 py-5">
+          <div ref={scrollRef} className="flex-1 space-y-5 overflow-y-auto px-4 py-5 sm:px-5">
             {messages.map((m) => (
               <MessageBubble key={m.id} message={m} />
             ))}

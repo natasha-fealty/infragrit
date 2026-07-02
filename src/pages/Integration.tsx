@@ -542,24 +542,26 @@ export default function Integration() {
       />
 
       <Tabs defaultValue="connectors">
-        <TabsList className="w-full justify-start overflow-x-auto">
-          <TabsTrigger value="connectors">
-            <Cable className="h-4 w-4" />
-            Enterprise Connectors
-          </TabsTrigger>
-          <TabsTrigger value="upload">
-            <UploadCloud className="h-4 w-4" />
-            Bulk Upload
-          </TabsTrigger>
-          <TabsTrigger value="manual">
-            <Keyboard className="h-4 w-4" />
-            Manual Entry
-          </TabsTrigger>
-          <TabsTrigger value="ai">
-            <Sparkles className="h-4 w-4" />
-            AI Ingestion
-          </TabsTrigger>
-        </TabsList>
+        <div className="overflow-x-auto no-scrollbar -mx-1 px-1">
+          <TabsList className="w-max min-w-full justify-start">
+            <TabsTrigger value="connectors" className="whitespace-nowrap">
+              <Cable className="h-4 w-4" />
+              Enterprise Connectors
+            </TabsTrigger>
+            <TabsTrigger value="upload" className="whitespace-nowrap">
+              <UploadCloud className="h-4 w-4" />
+              Bulk Upload
+            </TabsTrigger>
+            <TabsTrigger value="manual" className="whitespace-nowrap">
+              <Keyboard className="h-4 w-4" />
+              Manual Entry
+            </TabsTrigger>
+            <TabsTrigger value="ai" className="whitespace-nowrap">
+              <Sparkles className="h-4 w-4" />
+              AI Ingestion
+            </TabsTrigger>
+          </TabsList>
+        </div>
 
         {/* ---------- A · Enterprise Connectors ---------- */}
         <TabsContent value="connectors" className="space-y-5">
@@ -637,7 +639,7 @@ export default function Integration() {
           </motion.div>
 
           <Card>
-            <CardHeader className="flex-row items-center justify-between space-y-0">
+            <CardHeader className="flex-row flex-wrap items-center justify-between gap-2 space-y-0">
               <CardTitle className="flex items-center gap-2">
                 <FileDown className="h-4 w-4 text-primary" />
                 Download Templates

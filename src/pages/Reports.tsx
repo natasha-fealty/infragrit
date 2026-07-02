@@ -173,7 +173,7 @@ export default function Reports() {
           <h2 className="font-display text-lg font-semibold">Report Library</h2>
           <Badge variant="neutral" className="ml-1">{reports.length}</Badge>
         </div>
-        <StaggerGroup className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
+        <StaggerGroup className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
           {reports.map((r) => {
             const Icon = iconMap[r.icon] ?? FileBarChart;
             return (

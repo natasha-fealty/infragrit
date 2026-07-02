@@ -185,30 +185,32 @@ export default function Schedule() {
         variants={fadeInUp}
         initial="hidden"
         animate="show"
-        className="flex flex-wrap items-center gap-2 rounded-xl border border-border bg-card p-3 shadow-card"
+        className="flex flex-col gap-2 rounded-xl border border-border bg-card p-3 shadow-card sm:flex-row sm:flex-wrap sm:items-center"
       >
         <span className="mr-1 flex items-center gap-1.5 text-xs font-medium text-muted-foreground">
           <Filter className="h-3.5 w-3.5" /> Filters
         </span>
-        {filters.map((f) => (
-          <Select
-            key={f.label}
-            onValueChange={(v) =>
-              toast.success("Filter applied", { description: `${f.label}: ${v}` })
-            }
-          >
-            <SelectTrigger className="h-9 w-[9.5rem]">
-              <SelectValue placeholder={f.placeholder} />
-            </SelectTrigger>
-            <SelectContent>
-              {f.options.map((o) => (
-                <SelectItem key={o} value={o}>
-                  {o}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-        ))}
+        <div className="grid grid-cols-2 gap-2 sm:flex sm:flex-wrap sm:items-center">
+          {filters.map((f) => (
+            <Select
+              key={f.label}
+              onValueChange={(v) =>
+                toast.success("Filter applied", { description: `${f.label}: ${v}` })
+              }
+            >
+              <SelectTrigger className="h-9 w-full sm:w-[9.5rem]">
+                <SelectValue placeholder={f.placeholder} />
+              </SelectTrigger>
+              <SelectContent>
+                {f.options.map((o) => (
+                  <SelectItem key={o} value={o}>
+                    {o}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          ))}
+        </div>
       </motion.div>
 
       {/* KPI cards */}
@@ -282,7 +284,7 @@ export default function Schedule() {
         description="Interactive Gantt across the project WBS (day offsets)"
         icon={<GitBranch className="h-4 w-4" />}
         actions={
-          <div className="flex items-center gap-1.5">
+          <div className="flex flex-wrap items-center gap-1.5">
             <Button
               variant={criticalOnly ? "gradient" : "outline"}
               size="sm"

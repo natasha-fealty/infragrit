@@ -339,7 +339,7 @@ export default function DataQuality() {
       {/* Missing records table */}
       <motion.div variants={fadeInUp} initial="hidden" animate="show">
         <Card>
-          <CardHeader className="flex-row items-center justify-between space-y-0">
+          <CardHeader className="flex-row flex-wrap items-center justify-between gap-2 space-y-0">
             <CardTitle className="flex items-center gap-2">
               <FileWarning className="h-4 w-4 text-warning" />
               Missing Records
@@ -371,7 +371,7 @@ export default function DataQuality() {
       {/* Validation errors table */}
       <motion.div variants={fadeInUp} initial="hidden" animate="show">
         <Card>
-          <CardHeader className="flex-row items-center justify-between space-y-0">
+          <CardHeader className="flex-row flex-wrap items-center justify-between gap-2 space-y-0">
             <CardTitle className="flex items-center gap-2">
               <ShieldCheck className="h-4 w-4 text-primary" />
               Validation Errors

@@ -409,7 +409,7 @@ export default function Procurement() {
       {/* PO Register */}
       <motion.div variants={fadeInUp} initial="hidden" animate="show">
         <Card>
-          <CardHeader className="flex-row items-center justify-between space-y-0">
+          <CardHeader className="flex-row flex-wrap items-center justify-between gap-2 space-y-0">
             <CardTitle className="flex items-center gap-2">
               <PackageCheck className="h-4 w-4 text-primary" />
               Purchase Order Register
@@ -431,7 +431,7 @@ export default function Procurement() {
       {/* Material Register */}
       <motion.div variants={fadeInUp} initial="hidden" animate="show">
         <Card>
-          <CardHeader className="flex-row items-center justify-between space-y-0">
+          <CardHeader className="flex-row flex-wrap items-center justify-between gap-2 space-y-0">
             <CardTitle className="flex items-center gap-2">
               <Warehouse className="h-4 w-4 text-primary" />
               Material Register
