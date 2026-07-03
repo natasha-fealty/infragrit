@@ -1,6 +1,11 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   darkMode: ["class"],
+  future: {
+    // Only apply hover styles on devices that actually support hover (mouse/desktop).
+    // Fixes the "tap twice" issue on touch devices where the first tap only triggers :hover.
+    hoverOnlyWhenSupported: true,
+  },
   content: ["./index.html", "./src/**/*.{ts,tsx}"],
   theme: {
     container: {

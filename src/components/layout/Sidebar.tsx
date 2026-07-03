@@ -64,7 +64,7 @@ export function Sidebar({ collapsed, onToggle, onNavigate, instanceId = "desktop
                         onClick={onNavigate}
                         className={({ isActive }) =>
                           cn(
-                            "group relative flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-all",
+                            "group relative flex touch-manipulation items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-all",
                             collapsed && "justify-center px-0",
                             isActive
                               ? "bg-primary/15 text-white"
